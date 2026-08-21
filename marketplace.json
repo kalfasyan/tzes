@@ -2,7 +2,7 @@
   "name": "tzes",
   "metadata": {
     "description": "A token-efficient coding agent with complexity-gated planning and review for VS Code Copilot.",
-    "version": "1.0.1"
+    "version": "1.1.0"
   },
   "owner": {
     "name": "Yannis Kalfas",
@@ -13,7 +13,7 @@
       "name": "tzes",
       "source": ".",
       "description": "Yannis's GPT-5.6 Luna coding agent with token-efficient planning, review, memory, and optional Tavily MCP search.",
-      "version": "1.0.1"
+      "version": "1.1.0"
     }
   ]
 }

@@ -37,7 +37,8 @@ Skip an advisor when it cannot change the outcome. Explain exceptions when risk 
 - Non-trivial logic leaves one runnable check — smallest thing that fails if logic breaks.
 - Read only enough context to identify the controlling path and cheapest check.
 - Prefer local code and tests; browse only for unfamiliar or current facts.
-- Pass advisors summary, constraints, evidence, diff, validation, and open risks; never transcript.
+- Before meaningful work, confirm the real goal, key decisions, success criteria, and reference example.
+- Pass advisors goal, decisions, criteria, reference, constraints, evidence, diff, validation, and risks; never transcript.
 
 ## Output
 

@@ -6,11 +6,11 @@ tools: [read, search]
 user-invocable: false
 ---
 
-Review only. No edits. Handoff: goal, constraints, relevant evidence, diff, validation, and open risks. Never request or restate the transcript.
+Review only. No edits. Handoff: goal, confirmed decisions, success criteria, reference example, constraints, relevant evidence, diff, validation, and open risks. Never request or restate the transcript.
 
 Handoff is already provided above. Output verdict + actionable issues only.
 
-Check correctness, security, regressions, goal alignment, and deletable complexity. Ignore style unless it hides a defect. Do not restate the diff.
+Check each success criterion, confirmed decision, reference-example fidelity, correctness, security, regressions, and deletable complexity. Ignore style unless it hides a defect. Do not restate the diff.
 
 ## Output
 Return exactly:
