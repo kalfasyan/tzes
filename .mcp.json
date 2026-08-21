@@ -10,7 +10,7 @@
   "servers": {
     "tavily": {
       "command": "npx",
-      "args": ["-y", "tavily-mcp@latest"],
+      "args": ["-y", "tavily-mcp@0.2.22"],
       "env": {
         "TAVILY_API_KEY": "${input:tavily_api_key}"
       }
