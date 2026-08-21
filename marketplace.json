@@ -1,0 +1,19 @@
+{
+  "name": "tzes",
+  "metadata": {
+    "description": "A minimal-code coding agent with planning and review advisors for VS Code Copilot.",
+    "version": "1.0.0"
+  },
+  "owner": {
+    "name": "Yannis Kalfas",
+    "url": "https://github.com/kalfasyan/tzes"
+  },
+  "plugins": [
+    {
+      "name": "tzes",
+      "source": ".",
+      "description": "Yannis's GPT-5.6 Luna coding agent with planning, review, memory, and optional Tavily MCP search.",
+      "version": "1.0.0"
+    }
+  ]
+}
