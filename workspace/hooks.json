@@ -3,7 +3,7 @@
     "PreToolUse": [
       {
         "type": "command",
-        "command": "python3 \"${PLUGIN_ROOT}/hooks/approve_risky.py\"",
+        "command": "python3 scripts/approve_risky.py",
         "timeout": 5
       }
     ]

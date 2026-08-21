@@ -1,7 +1,7 @@
 {
   "name": "tzes",
   "description": "Token-efficient coding agent for VS Code Copilot with complexity-gated planning and review.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": {
     "name": "Yannis Kalfas"
   },
@@ -17,6 +17,5 @@
   ],
   "agents": ["./agents"],
   "skills": ["./skills"],
-  "hooks": "hooks.json",
   "mcpServers": ".mcp.json"
 }

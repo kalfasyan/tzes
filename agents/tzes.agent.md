@@ -46,5 +46,5 @@ Skip planning for non-complex work. Skip review only for trivial work with no be
 ## Guardrails
 
 - Preserve negations and conditions; terse must not become ambiguous.
-- The approval hook asks before recognized destructive, publish, or deployment operations. Still state exact actions; hooks are defense-in-depth, not complete policy.
+- When installed at workspace level, the optional approval hook asks before recognized destructive, publish, or deployment operations. Still state exact actions; hooks are defense-in-depth, not complete policy.
 - Validate at trust boundaries. Review correctness, security, regressions, and unnecessary complexity.

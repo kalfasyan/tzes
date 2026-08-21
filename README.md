@@ -33,33 +33,51 @@ The `project-audit` skill reviews GitHub Copilot equivalents of `CLAUDE.md`: `AG
 
 ## Approval hook
 
-`hooks.json` runs a small `PreToolUse` hook before tools. Safe calls keep normal host behavior. Recognized destructive, publish, deployment, database, or privileged operations return `ask` so the user must confirm.
+The optional workspace setup includes a small `PreToolUse` hook. Safe calls keep normal host behavior. Recognized destructive, publish, deployment, database, or privileged operations return `ask` so the user must confirm.
 
-The hook is defense-in-depth, not a complete command sandbox. It uses pattern matching and can miss novel commands or ask on unusual safe commands. VS Code hooks are currently preview; inspect **GitHub Copilot Chat Hooks** output if it does not load. Agent-scoped hooks are not used, so `chat.useCustomAgentHooks` is not required.
+The user-level plugin does not auto-enable this hook. VS Code currently does not expose a documented, stable plugin-root variable for bundled command hooks; an invalid path can fail closed and block every tool. Use the workspace installation below, where the script path is stable.
+
+The hook is defense-in-depth, not a complete command sandbox. It uses pattern matching and can miss novel commands or ask on unusual safe commands. VS Code hooks are currently preview; inspect **GitHub Copilot Chat Hooks** output if it does not load.
 
 ## Install
 
 ### User-level (all workspaces)
 
-```
+Register the marketplace once, then install:
+
+```bash
 copilot plugin marketplace add kalfasyan/tzes
 copilot plugin install tzes@tzes
 ```
 
 Or in an interactive Copilot CLI session:
 
-```
+```text
 /plugin marketplace add kalfasyan/tzes
 /plugin install tzes@tzes
 ```
 
 Then run **Chat: Reload Custom Agents** (`Ctrl+Shift+P`) in VS Code.
 
-To refresh an existing install after a repository update:
+### Update
 
 ```bash
 copilot plugin update tzes@tzes
 ```
+
+Then run **Chat: Reload Custom Agents** in VS Code. Check the installed version with:
+
+```bash
+copilot plugin list
+```
+
+### Uninstall
+
+```bash
+copilot plugin uninstall tzes@tzes
+```
+
+Then run **Developer: Reload Window**. If a broken `PreToolUse` hook blocks all agent tools, run the uninstall command manually in a terminal before reloading VS Code.
 
 ### Workspace-level (one repo)
 
@@ -69,11 +87,9 @@ Copy agents, skills, and the hook to `.github/` in your repo — VS Code auto-di
 mkdir -p path/to/your-repo/.github/agents path/to/your-repo/.github/skills path/to/your-repo/.github/hooks path/to/your-repo/scripts
 cp agents/*.agent.md path/to/your-repo/.github/agents/
 cp -r skills/* path/to/your-repo/.github/skills/
-cp hooks.json path/to/your-repo/.github/hooks/tzes.json
+cp workspace/hooks.json path/to/your-repo/.github/hooks/tzes.json
 cp hooks/approve_risky.py path/to/your-repo/scripts/
 ```
-
-For workspace copies, change the hook command from `${PLUGIN_ROOT}/hooks/approve_risky.py` to `scripts/approve_risky.py`.
 
 Install the plugin instead when you also want the optional Tavily MCP server.
 

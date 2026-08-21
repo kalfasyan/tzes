@@ -24,6 +24,7 @@ PATH_KEYS = {"path", "filepath", "file_path", "files"}
 PROTECTED_PATHS = {
     ".mcp.json",
     "hooks.json",
+    "workspace/hooks.json",
     "plugin.json",
     "marketplace.json",
     "hooks/approve_risky.py",

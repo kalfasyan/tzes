@@ -16,7 +16,7 @@ class PackageContractTest(unittest.TestCase):
         self.assertEqual(plugin["name"], entry["name"])
         self.assertEqual(plugin["version"], marketplace["metadata"]["version"])
         self.assertEqual(plugin["version"], entry["version"])
-        self.assertEqual(plugin["hooks"], "hooks.json")
+        self.assertNotIn("hooks", plugin)
         self.assertEqual(entry["source"], ".")
 
     def test_customization_frontmatter(self):
@@ -35,12 +35,10 @@ class PackageContractTest(unittest.TestCase):
                 self.assertTrue(body.strip())
 
     def test_hook_registration(self):
-        hooks = json.loads((ROOT / "hooks.json").read_text())
+        self.assertFalse((ROOT / "hooks.json").exists())
+        hooks = json.loads((ROOT / "workspace/hooks.json").read_text())
         command = hooks["hooks"]["PreToolUse"][0]["command"]
-        self.assertEqual(
-            command,
-            'python3 "${PLUGIN_ROOT}/hooks/approve_risky.py"',
-        )
+        self.assertEqual(command, "python3 scripts/approve_risky.py")
 
 
 if __name__ == "__main__":
